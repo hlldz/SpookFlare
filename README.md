@@ -50,7 +50,7 @@ SpookFlare has a different perspective to bypass security measures and it gives 
 https://artofpwn.com/spookflare.html
 
 ## Usage Video
-https://artofpwn.com/spookflare.html
+https://www.youtube.com/watch?v=p_eKKVoEl0o
 
 ### Note
 I developed the SpookFlare and technique for use in penetration tests, red team engagements and it is purely educational. Please use with responsibility.
