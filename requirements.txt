@@ -1,0 +1,3 @@
+cmd
+terminaltables
+textwrap
