@@ -5,14 +5,14 @@ import base64
 from base64 import b64encode
 
 def randomString():
-    return ''.join([random.choice(string.ascii_letters) for n in xrange(12)])
+    return ''.join([random.choice(string.ascii_letters) for n in range(12)])
 
 def checksum8(s):
 	return sum([ord(ch) for ch in s]) % 0x100
 
 def genHTTPChecksum():
 	chk = string.ascii_letters + string.digits
-	for x in xrange(64):
+	for x in range(64):
 		uri = "".join(random.sample(chk,3))
 		r = "".join(sorted(list(string.ascii_letters+string.digits), key=lambda *args: random.random()))
 		for char in r:
