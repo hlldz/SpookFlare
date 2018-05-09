@@ -4,7 +4,7 @@ import string
 import base64
 
 def randomString():
-    return ''.join([random.choice(string.ascii_letters) for n in xrange(12)])
+    return ''.join([random.choice(string.ascii_letters) for n in range(12)])
 
 def generateKey():
     keys = "!#+%&/()=?_-*[]$><"
