@@ -191,9 +191,8 @@ class mpBinaryModule(sfCmd):
             print("\n \033[1m\033[94m[*]\033[0m Generating payload...\n")
             outputFileName = sfmpbin.randomString()
             outputMPPSCode = sfmpbin.generateMPBinLoader(mpbProto, mpbLhost, mpbLport, mpbArch, mpbSsize)
-            file = open("output/"+outputFileName+".cs", "w")
-            file.write(outputMPPSCode)
-            file.close()
+            with open("output/"+outputFileName+".cs", "w") as out_file:
+                out_file.write(outputMPPSCode)
             print(" \033[1m\033[92m[+]\033[0m Binary loader code is successfully generated: output/" + outputFileName+".cs\n")
             print(" \033[1m\033[94m[*]\033[0m You can use C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe or Visual Studie for compile C# code.\n")
 
@@ -360,11 +359,11 @@ class jsHtaModule(sfCmd):
             print("\n \033[1m\033[91m[!]\033[0m Please check your values.\n")
         else:
             print("\n \033[1m\033[94m[*]\033[0m Generating payload...\033[0m")
-            htaCommand = (open(htaCmdFile, "r").read()).strip()
+            with open(htaCmdFile, "r") as in_file:
+                htaCommand = in_file.read().strip()
             outputFileName = sfhta.randomString()
-            file = open("output/"+outputFileName+".html", "w")
-            file.write(sfhta.obfuscateHta(sfhta.generateBase(htaCommand, htaDownloadName)))
-            file.close()
+            with open("output/"+outputFileName+".html", "w") as out_file:
+                out_file.write(sfhta.obfuscateHta(sfhta.generateBase(htaCommand, htaDownloadName)))
             print(" \033[1m\033[92m[+]\033[0m HTML loader code is successfully generated: output/" + \
                 outputFileName+".html\033[0m\n")
 
@@ -439,11 +438,11 @@ class vbaModule(sfCmd):
             print("\n \033[1m\033[91m[!]\033[0m Please check your values.\n")
         else:
             print("\n \033[1m\033[94m[*]\033[0m Generating payload...\033[0m")
-            vbaCommand = (open(vbaCmdFile, "r").read()).strip()
+            with open(vbaCmdFile, "r") as in_file:
+                vbaCommand = in_file.read().strip()
             outputFileName = sfvba.randomString()
-            file = open("output/"+outputFileName+".vba", "w")
-            file.write(sfvba.generateVBALauncher(vbaFileType, vbaCommand, vbaMetaName))
-            file.close()
+            with open("output/"+outputFileName+".vba", "w") as out_file:
+                out_file.write(sfvba.generateVBALauncher(vbaFileType, vbaCommand, vbaMetaName))
             print(" \033[1m\033[92m[+]\033[0m Macro loader code is successfully generated: output/" +
                   outputFileName + ".vba\033[0m\n")
 
@@ -452,6 +451,7 @@ class vbaModule(sfCmd):
 
     def do_exit(self, line):
         pass
+
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, ctrlcHandler)
