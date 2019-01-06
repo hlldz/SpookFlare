@@ -60,19 +60,19 @@ class sfCmd(cmd.Cmd):
             moduleName = line.split()[0]
         except IndexError:
             print("\n \033[1m\033[91m[!]\033[0m You need to give a valid payload id.\033[0m\n")
-        if moduleName == "1":
+        if moduleName in ("1", "meterpreter/binary"):
             moduleName = "meterpreter/binary"
             sfCmds = mpBinaryModule()
             sfCmds.cmdloop()
-        elif moduleName == "2":
+        elif moduleName in ("2", "meterpreter/powershell"):
             moduleName = "meterpreter/powershell"
             sfCmds = mpPSModule()
             sfCmds.cmdloop()
-        elif moduleName == "3":
+        elif moduleName in ("3", "javascript/hta"):
             moduleName = "javascript/hta"
             sfCmds = jsHtaModule()
             sfCmds.cmdloop()
-        elif moduleName == "4":
+        elif moduleName in ("4", "vba/macro"):
             moduleName = "vba/macro"
             sfCmds = vbaModule()
             sfCmds.cmdloop()
