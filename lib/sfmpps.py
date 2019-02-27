@@ -62,5 +62,5 @@ public class {0} {{
     }}
 }}'''
 
-    loaderFinal = mCsharpCode.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), b64encode(mpPsCode))
+    loaderFinal = mCsharpCode.format(randomString(), randomString(), randomString(), randomString(), randomString(), randomString(), b64encode(mpPsCode.encode()))
     return loaderFinal
