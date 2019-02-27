@@ -1,7 +1,7 @@
 # SpookFlare
 
 
-<p align="center"><img src="https://cdn.pbrd.co/images/GTu5vEY.png" alt="SpookFlare" width="300" height="200"></p>
+<p align="center"><img src="https://2.bp.blogspot.com/-C3sO1hv77RI/WuyTTuKUqaI/AAAAAAAALEE/DfOeVy73FiEn4o6NTJj3RP6fWbvjVbxtgCLcBGAs/s1600/SpookFlare_1.png" alt="SpookFlare" width="300" height="200"></p>
 
 SpookFlare has a different perspective to bypass security measures and it gives you the opportunity to bypass the endpoint countermeasures at the client-side detection and network-side detection. SpookFlare is a loader/dropper generator for Meterpreter, Empire, Koadic etc. SpookFlare has obfuscation, encoding, run-time code compilation and character substitution features. So you can bypass the countermeasures of the target systems like a boss until they "learn" the technique and behavior of SpookFlare payloads.
 
