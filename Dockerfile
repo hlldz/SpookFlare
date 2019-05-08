@@ -15,4 +15,6 @@ RUN git clone https://github.com/hlldz/SpookFlare.git /tmp/spookflare
 WORKDIR /tmp/spookflare
 RUN pip3 install -r requirements.txt
 
+EXPOSE 443 8080 80 555
+
 ENTRYPOINT ["python3", "spookflare.py"]
