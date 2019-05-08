@@ -56,6 +56,9 @@ docker run -t spookflare .
 docker run --rm -it spookflare
 ```
 
+Docker Run Example: docker run --rm -it xshuden/spookflare
+
+
 ## Technical Details
 https://artofpwn.com/spookflare.html
 
