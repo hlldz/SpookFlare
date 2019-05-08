@@ -46,6 +46,22 @@ SpookFlare > list
 # pip install -r requirements.txt
 ```
 
+## Docker Build
+```
+docker run -t spookflare .
+```
+
+## Docker Run
+```
+docker run --rm -it -v $(pwd):/tmp/spookflare/output -p 80:80 spookflare 
+docker run --rm -it -v $(pwd):/tmp/spookflare/output -p 8080:8080 spookflare
+docker run --rm -it -v $(pwd):/tmp/spookflare/output -p 443:443 spookflare
+docker run --rm -it -v $(pwd):/tmp/spookflare/output -p 555:555 spookflare
+```
+
+Docker Run Example: `docker run --rm -it -v $(pwd):/tmp/spookflare/output -p 80:80 xshuden/spookflare`
+
+
 ## Technical Details
 https://artofpwn.com/spookflare.html
 
