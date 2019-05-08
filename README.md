@@ -46,6 +46,16 @@ SpookFlare > list
 # pip install -r requirements.txt
 ```
 
+## Docker Build
+```
+docker run -t spookflare .
+```
+
+## Docker Run
+```
+docker run --rm -it spookflare
+```
+
 ## Technical Details
 https://artofpwn.com/spookflare.html
 
